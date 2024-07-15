@@ -12,7 +12,7 @@ import {
   images,
   modifyImageBtn,
 } from "./imageRegistration.css";
-const tenantId = "taeyul";
+const tenantId = "taeyuls";
 
 interface ImageRegistrationProps {
   imageUrl: string;
