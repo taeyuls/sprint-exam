@@ -1,13 +1,11 @@
-'use client'
+"use client";
 import { addTodoAPI, itemQueryAPI, modifyTodoAPI } from "@/api/todoRequests";
 import Done from "@/components/done/Done";
 import Search from "@/components/search/Search";
 import Todo from "@/components/todo/Todo";
 import { useEffect, useRef, useState } from "react";
 import { homeContainer, todoList } from "./home.css";
-import './page.module.css';
-
-
+import "./page.module.css";
 
 const ITEMS_PER_PAGE = 10; // 한 번에 가져올 아이템 수
 interface TodoItem {
@@ -29,12 +27,15 @@ export default function Home() {
   const fetchTodoData = async (page: number) => {
     try {
       setLoading(true);
-      const response = await itemQueryAPI(page)
+      const response = await itemQueryAPI(page);
       if (response.status === 200) {
         const newItems = response.data;
 
         // 중복 데이터 필터링
-        const filteredItems: TodoItem[] = newItems.filter((newItem: TodoItem) => !todoItems.some((item: TodoItem) => item.id === newItem.id));
+        const filteredItems: TodoItem[] = newItems.filter(
+          (newItem: TodoItem) =>
+            !todoItems.some((item: TodoItem) => item.id === newItem.id)
+        );
 
         if (filteredItems.length === 0) {
           setHasMore(false); // 데이터가 없으면 더 이상 요청하지 않음
@@ -49,14 +50,14 @@ export default function Home() {
         if (page === 1) {
           setTodoItems(filteredItems); // 페이지가 1인 경우 데이터 덮어쓰기
         } else {
-          setTodoItems(prevItems => [...prevItems, ...filteredItems]); // 페이지가 1이 아닌 경우 데이터 추가
+          setTodoItems((prevItems) => [...prevItems, ...filteredItems]); // 페이지가 1이 아닌 경우 데이터 추가
         }
       } else {
-        console.error('요청 실패');
+        console.error("요청 실패");
       }
       // console.log('투두 데이터', response.data);
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     } finally {
       setLoading(false);
     }
@@ -68,16 +69,18 @@ export default function Home() {
     }
   }, [page, hasMore]);
 
-
   // Intersection Observer 설정
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !loading && hasMore) {
-        setPage(prevPage => prevPage + 1);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !loading && hasMore) {
+          setPage((prevPage) => prevPage + 1);
+        }
+      },
+      {
+        threshold: 1.0,
       }
-    }, {
-      threshold: 1.0
-    });
+    );
 
     if (loaderRef.current && hasMore) {
       observer.observe(loaderRef.current);
@@ -90,17 +93,16 @@ export default function Home() {
     };
   }, [loading, hasMore, todoItems]);
 
-
   // 투두 추가 함수
   const addTodoItem = async (name: string) => {
     try {
-      const response = await addTodoAPI(name)
+      const response = await addTodoAPI(name);
       if (response.status === 201) {
         const newItem = response.data;
-        setTodoItems(prevItems => [newItem, ...prevItems]); // 새 항목을 기존 항목 앞에 추가
+        setTodoItems((prevItems) => [newItem, ...prevItems]); // 새 항목을 기존 항목 앞에 추가
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
@@ -108,18 +110,22 @@ export default function Home() {
   const completedTodoItem = async (itemId: number) => {
     try {
       const updateData = {
-        isCompleted: true
+        isCompleted: true,
       };
       await modifyTodoAPI(itemId, updateData);
-      setTodoItems(prevItems => prevItems.map(item => item.id === itemId ? { ...item, isCompleted: true } : item));
+      setTodoItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === itemId ? { ...item, isCompleted: true } : item
+        )
+      );
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
   // 완료된 항목과 완료되지 않은 항목을 필터링
-  const completedItems = todoItems.filter(item => item.isCompleted);
-  const incompleteItems = todoItems.filter(item => !item.isCompleted);
+  const completedItems = todoItems.filter((item) => item.isCompleted);
+  const incompleteItems = todoItems.filter((item) => !item.isCompleted);
 
   // 윈도우 너비 확인용
   useEffect(() => {
@@ -127,13 +133,13 @@ export default function Home() {
       setIsSmallScreen(window.innerWidth <= 480);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize(); // 마운트 시 초기화
 
     setHasMounted(true); // 컴포넌트가 마운트되었음을 표시
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -145,12 +151,15 @@ export default function Home() {
     <div className={homeContainer}>
       <Search addTodoItem={addTodoItem} /> {/* 투두 항목 추가 컴포넌트 */}
       <div className={todoList}>
-        <Todo todoItems={incompleteItems} completedTodoItem={completedTodoItem} /> {/* 완료 되지 않은 투두 항목 컴포넌트 */}
+        <Todo
+          todoItems={incompleteItems}
+          completedTodoItem={completedTodoItem}
+        />{" "}
+        {/* 완료 되지 않은 투두 항목 컴포넌트 */}
         <Done doneItems={completedItems} /> {/* 완료된 투두  컴포넌트 */}
       </div>
       {loading && <p>Loading...</p>} {/* 로딩 중일 때 표시 */}
       <div ref={loaderRef} />
-
     </div>
   );
 }
