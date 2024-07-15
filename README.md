@@ -13,8 +13,12 @@
 ---
 
 ## 사용방법
-
 ![스크린샷 2024-07-15 18.58.02.png](https://github.com/taeyuls/sprint-exam/blob/main/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202024-07-15%2018.58.02.png)
+![스크린샷 2024-07-15 19.04.32.png](https://github.com/taeyuls/sprint-exam/blob/main/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202024-07-15%2019.04.32.png?raw=true)
+![스크린샷 2024-07-15 19.04.42.png](https://github.com/taeyuls/sprint-exam/blob/main/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202024-07-15%2019.04.42.png?raw=true)
+
+
+
 
 > **할 일 목록 페이지** </br>
 
@@ -25,7 +29,8 @@
   > **할 일 완료** </br>
 - 할 일 항목의 왼쪽 버튼을 클릭하면 체크 표시가 되면서 완료 상태가 됩니다.</br>
 
-<img width="2237" alt="스크린샷 2024-06-27 오후 4 52 15" src="https://github.com/deswaq1220/codeit/assets/121841669/d80b5100-2c40-407e-a143-ad7931dbb169">
+![image](https://github.com/user-attachments/assets/32b5baf7-663d-4ea0-a9cc-e676af0d7051)
+
 
 > **할 일 상세페이지** </br>
 
@@ -38,7 +43,7 @@
   > **할 일 삭제** </br>
 - 삭제하기 버튼을 클릭하면 할 일 삭제가 가능하며, 삭제 후 할 일 목록 페이지로 이동합니다.
 
-<img width="2240" alt="스크린샷 2024-06-27 오후 5 02 25" src="https://github.com/deswaq1220/codeit/assets/121841669/1dbcb547-7ec7-43cf-8381-90e751ba3b31">
+![스크린샷 2024-07-15 23.06.21.png](https://github.com/taeyuls/sprint-exam/blob/main/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202024-07-15%2023.06.21.png?raw=true)
 
 > **사진 업로드** </br>
 
