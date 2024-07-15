@@ -1,4 +1,4 @@
-![noname](https://github.com/user-attachments/assets/df8e334e-50fc-4435-95fa-21787ee5f57f)# codeIt Do It
+# codeIt Do It
 
 할 일 목록을 관리하는 To Do 서비스 
 
@@ -14,7 +14,7 @@
 
 ## 사용방법
 
-<[스크린샷 2024-07-15 18.58.02.png](https://github.com/taeyuls/sprint-exam/blob/main/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202024-07-15%2018.58.02.png)>
+![스크린샷 2024-07-15 18.58.02.png](https://github.com/taeyuls/sprint-exam/blob/main/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202024-07-15%2018.58.02.png)
 
 > **할 일 목록 페이지** </br>
 
